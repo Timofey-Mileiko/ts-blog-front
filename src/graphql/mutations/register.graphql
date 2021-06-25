@@ -1,0 +1,13 @@
+#import "../fragments/RegularUser.graphql"
+
+mutation Register($username: String!, $password: String!) {
+  register(options: { username: $username, password: $password }) {
+    user {
+      ...RegularUser
+    }
+    errors {
+      field
+      message
+    }
+  }
+}
